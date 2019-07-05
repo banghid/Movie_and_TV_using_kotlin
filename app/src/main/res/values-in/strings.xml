@@ -1,0 +1,149 @@
+<resources>
+    <string name="app_name">Film dan TV</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">halo blank fragment</string>
+    <string name="change_language_settings">Ganti Bahasa</string>
+    <string name="detail_title">Judul</string>
+    <string name="detail_genre">Kategori</string>
+    <string name="detail_overview">Ikhtisar</string>
+    <string name="detail_episode">Episode</string>
+    <string name="movie1_title">Re: Zero kara Hajimeru Isekai Seikatsu - Memory Snow</string>
+    <string name="movie1_genre">Animasi, Petualangan</string>
+    <string name="movie1_poster">https://cdn.myanimelist.net/images/anime/1532/93563l.jpg</string>
+    <string name="movie1_overview">Subaru dan kawan-kawan akhirnya mendapatkan saat damai, dan Subaru melanjutkan misi
+        rahasia tertentu sehingga dia tidak boleh membiarkan siapa pun mencari tahu! Namun, meskipun Subaru mengenakan
+        penyamaran, Petra dan anak-anak lain di desa segera mengetahui siapa dia. Sekarang misinya terungkap dalam lima
+        detik sejak dimulainya, apa yang akan terjadi dengan \\\"kursus kencan\\\" Subaru dengan Emilia?
+    </string>
+    <string name="movie2_title">Avengers: Infinity War</string>
+    <string name="movie2_genre">Petualangan, Aksi, Fantasi</string>
+    <string name="movie2_poster">https://upload.wikimedia.org/wikipedia/en/4/4d/Avengers_Infinity_War_poster.jpg
+    </string>
+    <string name="movie2_overview">Ketika Avengers dan sekutu mereka terus melindungi dunia dari ancaman yang terlalu
+        besar untuk ditangani oleh satu pahlawan, bahaya baru telah muncul dari bayang-bayang kosmik: Thanos. Seorang
+        lalim penghinaan intergalaksi, tujuannya adalah untuk mengumpulkan semua enam Batu Infinity, artefak kekuatan
+        tak terbayangkan, dan menggunakannya untuk menimbulkan keinginannya yang terpelintir pada semua kenyataan.
+        Segala yang Avengers telah perjuangkan telah mengarah ke saat ini - nasib Bumi dan keberadaannya sendiri tidak
+        pernah lebih pasti.
+    </string>
+    <string name="movie3_title">Spider-Man: Into the Spider-Verse</string>
+    <string name="movie3_genre">Aksi, Petualangan, Animasi</string>
+    <string name="movie3_poster">
+        https://upload.wikimedia.org/wikipedia/en/b/b8/Spider-Man_Into_the_Spider-Verse_%282018_poster%29.png
+    </string>
+    <string name="movie3_overview">Miles Morales menyulap hidupnya antara menjadi siswa sekolah menengah dan menjadi
+        manusia laba-laba. Ketika Wilson \\\"Kingpin\\\" Fisk menggunakan collider super, yang lain dari seberang
+        Spider-Verse diangkut ke dimensi ini.
+    </string>
+    <string name="movie4_title">The Hopeful Romantic</string>
+    <string name="movie4_genre">Komedi, Romantis</string>
+    <string name="movie4_poster">https://entertainment.inquirer.net/files/2018/09/The-Hopeful-Romantic-poster.jpg
+    </string>
+    <string name="movie4_overview">Jess, seorang pelayan yang bekerja di The Manila Hotel, diberi hadiah semua biaya
+        menginap di suite hotel termahal ini. Dan selama dia tinggal, dia bertemu Veronica, seorang pencari emas
+        profesional. Jess terus ilusi menjadi tamu kaya hotel, berharap Veronica jatuh cinta padanya sebelum ia harus
+        mengatakan yang sebenarnya padanya.
+    </string>
+    <string name="movie5_title">Ralph Breaks the Internet</string>
+    <string name="movie5_genre">Fantasi, Animasi, Komedi, Petualangan</string>
+    <string name="movie5_poster">
+        https://upload.wikimedia.org/wikipedia/en/0/0b/Ralph_Breaks_the_Internet_%282018_film_poster%29.png
+    </string>
+    <string name="movie5_overview">Penjahat video game, Ralph dan rekan-rekannya yang tidak sesuai, Vanellope von
+        Schweetz harus mengambil risiko dengan melakukan perjalanan ke World Wide Web untuk mencari bagian pengganti
+        untuk menyelamatkan video game Vanellope, \\\"Sugar Rush.\\\" Di atas kepala mereka, Ralph dan Vanellope
+        mengandalkan warga internet - netizen - untuk membantu menavigasi jalan mereka, termasuk seorang pengusaha
+        bernama Yesss, yang merupakan algoritma kepala dan jantung dan jiwa dari situs pembuat tren BuzzzTube.
+    </string>
+    <string name="tab_tv">Acara TV</string>
+    <string name="tab_movie">Film</string>
+    <string name="movie6_title">"Venom "</string>
+    <string name="movie6_genre">Fiksi Sains, Aksi</string>
+    <string name="movie6_poster">https://upload.wikimedia.org/wikipedia/en/1/18/Venom_%282018_film_poster%29.png
+    </string>
+    <string name="movie7_title">Aquaman</string>
+    <string name="movie7_genre">Aksi, Petualangan, Fantasi</string>
+    <string name="movie7_poster">https://upload.wikimedia.org/wikipedia/en/3/3a/Aquaman_poster.jpg</string>
+    <string name="movie6_overview">Jurnalis investigasi Eddie Brock mencoba untuk kembali setelah skandal, tetapi secara
+        tidak sengaja menjadi tuan rumah Venom, seorang simbiot alien yang sangat kuat dan sakti. Segera, ia harus
+        mengandalkan kekuatan barunya untuk melindungi dunia dari organisasi bayangan yang mencari simbiosis mereka
+        sendiri.
+    </string>
+    <string name="movie7_overview">Dulunya merupakan rumah bagi peradaban paling maju di Bumi, Atlantis sekarang
+        merupakan kerajaan bawah laut yang diperintah oleh Raja Orm yang haus kekuasaan. Dengan pasukan yang sangat
+        besar, Orm berencana untuk menaklukkan orang-orang samudera yang tersisa dan kemudian ke permukaan dunia. Yang
+        menghalangi jalannya adalah Arthur Curry, saudara tiri manusia setengah manusia Orm dan pewaris sejati takhta.
+    </string>
+    <string name="movie8_title">Deadpool 2</string>
+    <string name="movie8_genre">Aksi, Komedi, Petualangan</string>
+    <string name="movie8_poster">https://upload.wikimedia.org/wikipedia/en/c/cf/Deadpool_2_poster.jpg</string>
+    <string name="movie8_overview">Deadpool tentara bayaran penyihir bertempur melawan Cable jahat dan kuat dan orang
+        jahat lainnya untuk menyelamatkan hidup anak laki-laki.
+    </string>
+    <string name="movie9_title">Black Panther</string>
+    <string name="movie9_genre">Aksi, Petualangan, Fantasi, Fiksi Sains</string>
+    <string name="movie9_poster">https://upload.wikimedia.org/wikipedia/en/0/0c/Black_Panther_film_poster.jpg</string>
+    <string name="movie9_overview">Raja T\'Challa pulang dari Amerika ke negara Wakanda yang tertutup dan berteknologi
+        maju untuk melayani sebagai pemimpin baru negaranya. Namun, T\'Challa segera menemukan bahwa ia ditantang untuk
+        naik takhta oleh faksi di negaranya sendiri maupun di luar. Menggunakan kekuatan yang disediakan untuk raja-raja
+        Wakandan, T\'Challa mengasumsikan mantel Black Panther untuk bergabung dengan pacar Nakia, ibu-ratu, saudara
+        perempuan-anak kandungnya, anggota Dora Milaje (pasukan khusus \'Wakandan\') dan seorang agen rahasia Amerika. ,
+        untuk mencegah Wakanda diseret ke dalam perang dunia.
+    </string>
+    <string name="movie10_title">Mission: Impossible - Fallout</string>
+    <string name="movie10_genre">Aksi, Petualangan</string>
+    <string name="movie10_poster">https://upload.wikimedia.org/wikipedia/en/f/ff/MI_–_Fallout.jpg</string>
+    <string name="movie10_overview">Ketika misi IMF berakhir dengan buruk, dunia dihadapkan pada konsekuensi yang
+        mengerikan. Ketika Ethan Hunt mengambilnya untuk memenuhi pengarahan aslinya, CIA mulai mempertanyakan kesetiaan
+        dan motifnya. Tim IMF menemukan diri mereka berpacu dengan waktu, diburu oleh para pembunuh ketika berusaha
+        mencegah bencana global.
+    </string>
+    <string name="tvshow1_title">Legacies</string>
+    <string name="tvshow1_genre">Drama, Fiksi Sains, Fantasi, Misteri</string>
+    <string name="tvshow1_poster">
+        https://vignette.wikia.nocookie.net/vampirediaries/images/c/c4/Legacies_Key_Art_Poster.jpg/revision/latest?cb=20180517122345
+    </string>
+    <string name="tvshow1_episode">16 episode</string>
+    <string name="tvshow1_overview">Di tempat di mana para penyihir muda, vampir, dan manusia serigala dibesarkan untuk
+        menjadi diri terbaik mereka terlepas dari impuls terburuk mereka, putri Klaus Mikaelson, 17 tahun Hope
+        Mikaelson, kembar Alaric Saltzman, Lizzie dan Josie Saltzman, antara lain, datang usia menjadi pahlawan dan
+        penjahat di The Salvatore School for the Young and Gifted.
+    </string>
+    <string name="tvshow2_title">Goblin Slayer</string>
+    <string name="tvshow2_genre">Animasi, Aksi, Petualangan, Fiksi Sains, Fantasi</string>
+    <string name="tvshow2_poster">https://cdn.myanimelist.net/images/anime/1949/93415l.jpg</string>
+    <string name="tvshow2_episode">12 episode</string>
+    <string name="tvshow2_overview">Seorang pendeta muda telah membentuk pesta pertualangan pertamanya, tetapi segera
+        mereka mendapati diri mereka dalam kesulitan. Adalah Pembunuh Goblin yang datang untuk menyelamatkan mereka —
+        seorang pria yang mendedikasikan hidupnya untuk memusnahkan semua goblin, dengan cara apa pun yang diperlukan.
+        Dan ketika rumor tentang prestasinya mulai beredar, tidak ada yang tahu siapa yang akan datang menelepon
+        berikutnya.
+    </string>
+    <string name="tvshow3_title">How Not to Summon a Demon Lord</string>
+    <string name="tvshow3_genre">Aksi, Petualangan, Komedi</string>
+    <string name="tvshow3_poster">https://cdn.myanimelist.net/images/manga/3/161406l.jpg</string>
+    <string name="tvshow3_episode">12 episode</string>
+    <string name="tvshow3_overview">Sehubungan dengan Cross MMORPG Reverie, Sakamoto Takuma membual kekuatan yang luar
+        biasa yang cukup baginya untuk disebut Raja Iblis oleh pemain lain. Suatu hari, dia dipanggil ke dunia lain
+        dengan penampilannya di game. Di sana, ada dua orang yang bersikeras, \"Aku adalah ahli pemanggilan yang
+        sebenarnya.\" Takuma mendapat sihir pembalasan budak yang digunakan untuk monster yang dipanggil yang
+        dilemparkan padanya oleh para gadis―
+    </string>
+    <string name="tvshow4_title">Violet Evergarden</string>
+    <string name="tvshow4_genre">Animasi, Drama</string>
+    <string name="tvshow4_poster">https://cdn.myanimelist.net/images/anime/1439/90617l.jpg</string>
+    <string name="tvshow4_episode">13 episode</string>
+    <string name="tvshow4_overview">Perang telah berakhir, dan Violet Evergarden membutuhkan pekerjaan. Luka dan tanpa
+        emosi, ia mengambil pekerjaan sebagai penulis surat untuk memahami dirinya sendiri dan masa lalunya.
+    </string>
+    <string name="tvshow5_title">The Resident</string>
+    <string name="tvshow5_genre">Drama</string>
+    <string name="tvshow5_poster">https://upload.wikimedia.org/wikipedia/en/4/4c/The_Resident_logo.png</string>
+    <string name="tvshow5_episode">23 episode</string>
+    <string name="tvshow5_overview">Seorang residen senior yang tangguh dan cemerlang memandu seorang dokter muda yang
+        idealis melewati hari pertamanya, menarik kembali tirai tentang apa yang sebenarnya terjadi, baik dan buruk,
+        dalam kedokteran modern.
+    </string>
+</resources>
