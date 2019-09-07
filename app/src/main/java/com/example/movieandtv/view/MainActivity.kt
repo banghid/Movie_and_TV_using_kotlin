@@ -18,7 +18,6 @@ class MainActivity : AppCompatActivity() {
         view_pager.adapter = MyPagerAdapter(supportFragmentManager,this)
         tabs.setupWithViewPager(view_pager)
 
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -29,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         if (item?.itemId == R.id.action_change_settings){
-            var intent = Intent(Settings.ACTION_LOCALE_SETTINGS)
+            val intent = Intent(Settings.ACTION_LOCALE_SETTINGS)
             startActivity(intent)
         }
         return (super.onOptionsItemSelected(item))

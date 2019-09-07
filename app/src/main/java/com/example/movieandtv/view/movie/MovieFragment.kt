@@ -54,5 +54,13 @@ class MovieFragment : Fragment(), MovieView {
         movieAdapter.notifyDataSetChanged()
     }
 
+    private fun showLoading(state: Boolean) {
+        if (state) {
+            fragment_movies_pb.setVisibility(View.VISIBLE)
+        } else {
+            fragment_movies_pb.setVisibility(View.GONE)
+        }
+    }
+
 
 }

@@ -1,16 +1,47 @@
 package com.example.movieandtv.presenter
 
 
+import android.arch.lifecycle.LiveData
+import android.arch.lifecycle.MutableLiveData
 import android.content.Context
+import android.util.Log
 import com.example.movieandtv.R
 import com.example.movieandtv.model.Movie
+import com.example.movieandtv.model.MovieItem
+import com.example.movieandtv.model.MovieResponse
+import com.example.movieandtv.service.AppService
 import com.example.movieandtv.view.movie.MovieView
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import java.util.ArrayList
 
-class MoviePresenter{
-    private var view: MovieView
+class MoviePresenter(private var view: MovieView) {
+    private lateinit var lang: String
+    private lateinit var appService: AppService
+    private val listMovie = MutableLiveData<ArrayList<MovieItem>>()
 
-    constructor(view: MovieView){
-        this.view = view
+    fun setMovie(lang: String) {
+        this.lang = lang
+
+        appService.getMovieApi().getMovie(lang).enqueue(object : Callback<MovieResponse> {
+            override fun onResponse(call: Call<MovieResponse>, response: Response<MovieResponse>) {
+                val movieResponse = response.body()
+                if (movieResponse?.results != null) {
+                    val movieItems:ArrayList<MovieItem> = movieResponse.results
+                    Log.d("MovieViewModel", "onResponse success$movieItems")
+                    listMovie.postValue(movieItems)
+                }
+            }
+
+            override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
+                Log.d("MovieViewModel", "onFailure " + t.message)
+            }
+        })
+    }
+
+    fun getMovies(): LiveData<ArrayList<MovieItem>> {
+        return listMovie
     }
 
     fun getListMovie(context: Context){
