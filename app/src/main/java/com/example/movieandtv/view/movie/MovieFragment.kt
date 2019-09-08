@@ -1,6 +1,7 @@
 package com.example.movieandtv.view.movie
 
 
+import android.arch.lifecycle.Observer
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -9,7 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.movieandtv.R
 import com.example.movieandtv.adapter.MovieAdapter
-import com.example.movieandtv.model.Movie
+import com.example.movieandtv.model.MovieItem
 import com.example.movieandtv.presenter.MoviePresenter
 import kotlinx.android.synthetic.main.fragment_movie.*
 
@@ -25,7 +26,7 @@ import kotlinx.android.synthetic.main.fragment_movie.*
 // */
 class MovieFragment : Fragment(), MovieView {
 
-    private var movies:ArrayList<Movie> = arrayListOf()
+    private var movies: ArrayList<MovieItem> = arrayListOf()
     private lateinit var moviePresenter:MoviePresenter
     private lateinit var movieAdapter:MovieAdapter
 
@@ -34,6 +35,7 @@ class MovieFragment : Fragment(), MovieView {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_movie, container, false)
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -45,20 +47,31 @@ class MovieFragment : Fragment(), MovieView {
             setHasFixedSize(true)
             adapter = movieAdapter
         }
-        moviePresenter.getListMovie(this.context!!)
+        moviePresenter.setMovie(resources.getString(R.string.code_language))
+        moviePresenter.getMovies().observe(this, getMovie)
 
     }
 
-    override fun showMovie(movie: List<Movie>) {
+    override fun showMovie(movie: List<MovieItem>) {
         this.movies.addAll(movie)
         movieAdapter.notifyDataSetChanged()
     }
 
+    private val getMovie =
+        Observer<java.util.ArrayList<MovieItem>> { movieItems ->
+            if (movieItems != null) {
+                showMovie(movieItems as List<MovieItem>)
+                showLoading(false)
+            } else {
+                showLoading(true)
+            }
+        }
+
     private fun showLoading(state: Boolean) {
         if (state) {
-            fragment_movies_pb.setVisibility(View.VISIBLE)
+            fragment_movies_pb.visibility = View.VISIBLE
         } else {
-            fragment_movies_pb.setVisibility(View.GONE)
+            fragment_movies_pb.visibility = View.GONE
         }
     }
 

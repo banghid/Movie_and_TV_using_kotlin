@@ -1,6 +1,7 @@
 package com.example.movieandtv.view.tvshow
 
 
+import android.arch.lifecycle.Observer
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -9,10 +10,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.movieandtv.R
 import com.example.movieandtv.adapter.TvShowAdapter
-import com.example.movieandtv.model.TvShow
+import com.example.movieandtv.model.TvShowItem
 import com.example.movieandtv.presenter.TvShowPresenter
 import kotlinx.android.synthetic.main.fragment_tvshow.*
-
 
 
 //// TODO: Rename parameter arguments, choose names that match
@@ -26,7 +26,7 @@ import kotlinx.android.synthetic.main.fragment_tvshow.*
 // */
 class TvshowFragment : Fragment(), TvShowView {
 
-    private var tvShows:ArrayList<TvShow> = arrayListOf()
+    private var tvShows: ArrayList<TvShowItem> = arrayListOf()
     private lateinit var tvShowPresenter: TvShowPresenter
     private lateinit var tvShowAdapter: TvShowAdapter
 
@@ -45,15 +45,33 @@ class TvshowFragment : Fragment(), TvShowView {
             setHasFixedSize(true)
             adapter = tvShowAdapter
         }
-        tvShowPresenter.getListTvShow(this.context!!)
+        tvShowPresenter.setTvShow(resources.getString(R.string.code_language))
+        tvShowPresenter.getTvShows().observe(this, getTvShow)
 
 
     }
 
-    override fun showTvShows(tvShows: List<TvShow>) {
-        this.tvShows.addAll(tvShows)
+    override fun showTvShow(tvShow: List<TvShowItem>) {
+        this.tvShows.addAll(tvShow)
         tvShowAdapter.notifyDataSetChanged()
     }
 
+    private val getTvShow =
+        Observer<java.util.ArrayList<TvShowItem>> { tvShowItems ->
+            if (tvShowItems != null) {
+                showTvShow(tvShowItems as List<TvShowItem>)
+                showLoading(false)
+            } else {
+                showLoading(true)
+            }
+        }
+
+    private fun showLoading(state: Boolean) {
+        if (state) {
+            fragment_tvShow_pb.visibility = View.VISIBLE
+        } else {
+            fragment_tvShow_pb.visibility = View.GONE
+        }
+    }
 
 }

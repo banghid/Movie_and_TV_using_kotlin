@@ -5,9 +5,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class AppService {
     private var retrofit: Retrofit? = null
+    private val BASE_URL: String = "https://api.themoviedb.org/"
 
     fun getMovieApi(): MovieApi {
-        val BASE_URL = "https://api.themoviedb.org/"
 
         if (retrofit == null) {
             retrofit = Retrofit.Builder()
@@ -17,5 +17,17 @@ class AppService {
         }
 
         return retrofit!!.create<MovieApi>(MovieApi::class.java)
+    }
+
+    fun getTvshowApi(): TvShowApi {
+
+        if (retrofit == null) {
+            retrofit = Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+        }
+
+        return retrofit!!.create<TvShowApi>(TvShowApi::class.java)
     }
 }

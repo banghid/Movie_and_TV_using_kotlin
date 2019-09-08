@@ -3,13 +3,14 @@ package com.example.movieandtv.view.tvshow_detail
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.example.movieandtv.R
-import com.example.movieandtv.model.TvShow
+import com.example.movieandtv.model.TvShowItem
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_tv_show_detail.*
 
 class TvShowDetailActivity : AppCompatActivity() {
 
-    private lateinit var tvShow:TvShow
+    private lateinit var tvShow: TvShowItem
+    private val BASE_URL_IMAGE = "https://image.tmdb.org/t/p/w500/"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,12 +18,12 @@ class TvShowDetailActivity : AppCompatActivity() {
 
         var intent = intent
         tvShow = intent.getParcelableExtra("TVSHOW_DATA")
-        tvShow.posterData.let {
-            Picasso.get().load(tvShow.posterData).into(img_detail_tvshow)
+        tvShow.posterPath.let {
+            Picasso.get().load(BASE_URL_IMAGE + tvShow.posterPath).into(img_detail_tvshow)
         }
-        tv_title_detail_tvshow.text = tvShow.titleData
-        tv_genre_detail_tvshow.text = tvShow.genreData
-        tv_episode_detail_tvshow.text = tvShow.episodeData
-        tv_overview_detail_tvshow.text = tvShow.overviewData
+        tv_title_detail_tvshow.text = tvShow.name
+//        tv_genre_detail_tvshow.text = tvShow.genreData
+//        tv_episode_detail_tvshow.text = tvShow.episodeData
+        tv_overview_detail_tvshow.text = tvShow.overview
     }
 }

@@ -1,32 +1,46 @@
 package com.example.movieandtv.presenter
 
-import android.content.Context
-import com.example.movieandtv.R
-import com.example.movieandtv.model.TvShow
+import android.arch.lifecycle.LiveData
+import android.arch.lifecycle.MutableLiveData
+import android.util.Log
+import com.example.movieandtv.model.TvShowItem
+import com.example.movieandtv.model.TvShowResponse
+import com.example.movieandtv.service.AppService
 import com.example.movieandtv.view.tvshow.TvShowView
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import java.util.*
 
-class TvShowPresenter {
+class TvShowPresenter(private var view: TvShowView) {
+    private lateinit var lang: String
+    private var appService: AppService = AppService()
+    private val listTvShow = MutableLiveData<ArrayList<TvShowItem>>()
 
-    private var view: TvShowView
+    fun setTvShow(lang: String) {
+        this.lang = lang
 
-    constructor(view: TvShowView){
-        this.view = view
+        appService.getTvshowApi().getTvShow(lang).enqueue(object : Callback<TvShowResponse> {
+            override fun onResponse(
+                call: Call<TvShowResponse>,
+                response: Response<TvShowResponse>
+            ) {
+                val tvShowResponse = response.body()
+                if (tvShowResponse?.results != null) {
+                    val tvShowItems: ArrayList<TvShowItem> = tvShowResponse.results
+                    Log.d("TvShowPresenter", "onResponse success$tvShowItems")
+                    listTvShow.postValue(tvShowItems)
+                }
+            }
+
+            override fun onFailure(call: Call<TvShowResponse>, t: Throwable) {
+                Log.d("TvShowPresenter", "onFailure " + t.message)
+            }
+        })
     }
 
-    fun getListTvShow(context: Context){
-        val tvShows = listOf<TvShow>(
-            TvShow(context.resources.getString(R.string.tvshow1_title),context.resources.getString(R.string.tvshow1_genre),context.resources.getString(R.string.tvshow1_poster),context.resources.getString(R.string.tvshow1_episode),context.resources.getString(R.string.tvshow1_overview)),
-            TvShow(context.resources.getString(R.string.tvshow2_title),context.resources.getString(R.string.tvshow2_genre),context.resources.getString(R.string.tvshow2_poster),context.resources.getString(R.string.tvshow2_episode),context.resources.getString(R.string.tvshow2_overview)),
-            TvShow(context.resources.getString(R.string.tvshow3_title),context.resources.getString(R.string.tvshow3_genre),context.resources.getString(R.string.tvshow3_poster),context.resources.getString(R.string.tvshow3_episode),context.resources.getString(R.string.tvshow3_overview)),
-            TvShow(context.resources.getString(R.string.tvshow4_title),context.resources.getString(R.string.tvshow4_genre),context.resources.getString(R.string.tvshow4_poster),context.resources.getString(R.string.tvshow4_episode),context.resources.getString(R.string.tvshow4_overview)),
-            TvShow(context.resources.getString(R.string.tvshow5_title),context.resources.getString(R.string.tvshow5_genre),context.resources.getString(R.string.tvshow5_poster),context.resources.getString(R.string.tvshow5_episode),context.resources.getString(R.string.tvshow5_overview)),
-            TvShow(context.resources.getString(R.string.tvshow1_title),context.resources.getString(R.string.tvshow1_genre),context.resources.getString(R.string.tvshow1_poster),context.resources.getString(R.string.tvshow1_episode),context.resources.getString(R.string.tvshow1_overview)),
-            TvShow(context.resources.getString(R.string.tvshow2_title),context.resources.getString(R.string.tvshow2_genre),context.resources.getString(R.string.tvshow2_poster),context.resources.getString(R.string.tvshow2_episode),context.resources.getString(R.string.tvshow2_overview)),
-            TvShow(context.resources.getString(R.string.tvshow3_title),context.resources.getString(R.string.tvshow3_genre),context.resources.getString(R.string.tvshow3_poster),context.resources.getString(R.string.tvshow3_episode),context.resources.getString(R.string.tvshow3_overview)),
-            TvShow(context.resources.getString(R.string.tvshow4_title),context.resources.getString(R.string.tvshow4_genre),context.resources.getString(R.string.tvshow4_poster),context.resources.getString(R.string.tvshow4_episode),context.resources.getString(R.string.tvshow4_overview)),
-            TvShow(context.resources.getString(R.string.tvshow5_title),context.resources.getString(R.string.tvshow5_genre),context.resources.getString(R.string.tvshow5_poster),context.resources.getString(R.string.tvshow5_episode),context.resources.getString(R.string.tvshow5_overview))
-        )
-
-        view.showTvShows(tvShows)
+    fun getTvShows(): LiveData<ArrayList<TvShowItem>> {
+        return listTvShow
     }
+
 }

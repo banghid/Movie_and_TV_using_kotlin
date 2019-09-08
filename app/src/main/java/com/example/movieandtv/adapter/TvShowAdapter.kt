@@ -7,12 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.movieandtv.R
+import com.example.movieandtv.model.TvShowItem
 import com.example.movieandtv.view.tvshow_detail.TvShowDetailActivity
-import com.example.movieandtv.model.TvShow
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.tvshow_item_row.view.*
 
-class TvShowAdapter(private val context: Context, private val tvShowData:List<TvShow>):RecyclerView.Adapter<TvShowHolder>() {
+class TvShowAdapter(private val context: Context, private val tvShowData: List<TvShowItem>) :
+    RecyclerView.Adapter<TvShowHolder>() {
     override fun onBindViewHolder(p0: TvShowHolder, p1: Int) {
         return p0.bindTvShow(context,tvShowData[p1])
     }
@@ -31,15 +32,16 @@ class TvShowHolder(view: View): RecyclerView.ViewHolder(view){
     private var tv_genre_tvshow = view.tv_genre_tvshow
     private var tv_episode_tvshow = view.tv_episode_tvshow
     private var tvshow_item_row = view.tvshow_item_row
+    private val BASE_URL_IMAGE = "https://image.tmdb.org/t/p/w185/"
 
-    fun bindTvShow(context: Context,tvShow:TvShow){
-        tvShow.posterData.let {
-            Picasso.get().load(tvShow.posterData).into(img_tvshow_row)
+    fun bindTvShow(context: Context, tvShow: TvShowItem) {
+        tvShow.posterPath.let {
+            Picasso.get().load(BASE_URL_IMAGE + tvShow.posterPath).into(img_tvshow_row)
         }
 
-        tv_title_tvshow.text = tvShow.titleData
-        tv_genre_tvshow.text = tvShow.genreData
-        tv_episode_tvshow.text = tvShow.episodeData
+        tv_title_tvshow.text = tvShow.name
+//        tv_genre_tvshow.text = tvShow.genreData
+//        tv_episode_tvshow.text = tvShow.
         tvshow_item_row.setOnClickListener(object :View.OnClickListener{
             override fun onClick(v: View?) {
                 var detailTvShow = Intent(context, TvShowDetailActivity::class.java)

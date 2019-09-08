@@ -1,7 +1,7 @@
 package com.example.movieandtv.view.movie
 
-import com.example.movieandtv.model.Movie
+import com.example.movieandtv.model.MovieItem
 
 interface MovieView {
-    fun showMovie(movie: List<Movie>)
+    fun showMovie(movie: List<MovieItem>)
 }
