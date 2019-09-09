@@ -22,8 +22,7 @@ class TvShowDetailActivity : AppCompatActivity() {
             Picasso.get().load(BASE_URL_IMAGE + tvShow.posterPath).into(img_detail_tvshow)
         }
         tv_title_detail_tvshow.text = tvShow.name
-//        tv_genre_detail_tvshow.text = tvShow.genreData
-//        tv_episode_detail_tvshow.text = tvShow.episodeData
+        tv_rating_detail_tvshow.text = tvShow.voteAverage.toString()
         tv_overview_detail_tvshow.text = tvShow.overview
     }
 }

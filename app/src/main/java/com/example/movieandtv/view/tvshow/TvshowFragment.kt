@@ -59,7 +59,7 @@ class TvshowFragment : Fragment(), TvShowView {
     private val getTvShow =
         Observer<java.util.ArrayList<TvShowItem>> { tvShowItems ->
             if (tvShowItems != null) {
-                showTvShow(tvShowItems as List<TvShowItem>)
+                showTvShow(tvShowItems)
                 showLoading(false)
             } else {
                 showLoading(true)

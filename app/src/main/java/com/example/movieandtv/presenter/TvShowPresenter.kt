@@ -34,7 +34,7 @@ class TvShowPresenter(private var view: TvShowView) {
             }
 
             override fun onFailure(call: Call<TvShowResponse>, t: Throwable) {
-                Log.d("TvShowPresenter", "onFailure " + t.message)
+                Log.d("TvShowPresenter", "onFailure " + t.message + " " + lang)
             }
         })
     }

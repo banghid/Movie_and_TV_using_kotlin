@@ -29,8 +29,7 @@ class TvShowAdapter(private val context: Context, private val tvShowData: List<T
 class TvShowHolder(view: View): RecyclerView.ViewHolder(view){
     private var img_tvshow_row = view.img_tvshow_row
     private var tv_title_tvshow = view.tv_title_tvshow
-    private var tv_genre_tvshow = view.tv_genre_tvshow
-    private var tv_episode_tvshow = view.tv_episode_tvshow
+    private var tv_rating_tvshow = view.tv_rating_tvshow
     private var tvshow_item_row = view.tvshow_item_row
     private val BASE_URL_IMAGE = "https://image.tmdb.org/t/p/w185/"
 
@@ -39,19 +38,16 @@ class TvShowHolder(view: View): RecyclerView.ViewHolder(view){
             Picasso.get().load(BASE_URL_IMAGE + tvShow.posterPath).into(img_tvshow_row)
         }
 
-        tv_title_tvshow.text = tvShow.name
-//        tv_genre_tvshow.text = tvShow.genreData
+        tv_title_tvshow.text = tvShow.originalName
+        tv_rating_tvshow.text = tvShow.voteAverage.toString()
 //        tv_episode_tvshow.text = tvShow.
-        tvshow_item_row.setOnClickListener(object :View.OnClickListener{
-            override fun onClick(v: View?) {
-                var detailTvShow = Intent(context, TvShowDetailActivity::class.java)
-                detailTvShow.putExtra("TVSHOW_DATA",tvShow)
-                context.startActivity(detailTvShow)
-            }
-        })
+        tvshow_item_row.setOnClickListener {
+            var detailTvShow = Intent(context, TvShowDetailActivity::class.java)
+            detailTvShow.putExtra("TVSHOW_DATA", tvShow)
+            context.startActivity(detailTvShow)
+        }
 
 
-        
     }
 
 }

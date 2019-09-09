@@ -23,7 +23,7 @@ data class TvShowItem(
     val posterPath: String? = null,
 
     @field:SerializedName("origin_country")
-    val originCountry: List<Int?>? = null,
+    val originCountry: List<String?>? = null,
 
     @field:SerializedName("backdrop_path")
     val backdropPath: String? = null,
@@ -35,7 +35,7 @@ data class TvShowItem(
     val popularity: Double? = null,
 
     @field:SerializedName("vote_average")
-    val voteAverage: Int? = null,
+    val voteAverage: Double? = null,
 
     @field:SerializedName("name")
     val name: String? = null,
