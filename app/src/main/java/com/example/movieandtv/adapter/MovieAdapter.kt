@@ -12,21 +12,32 @@ import com.example.movieandtv.view.movie_detail.MovieDetailActivity
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.movie_item_row.view.*
 
-class MovieAdapter(private val context: Context, private val movieData: List<MovieItem>) :
+class MovieAdapter(private val context: Context, private val movieData: ArrayList<MovieItem>) :
     RecyclerView.Adapter<MovieHolder>() {
+
+
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): MovieHolder {
-        return MovieHolder(LayoutInflater.from(p0.context).inflate(R.layout.movie_item_row,p0,false))
+        return MovieHolder(
+            LayoutInflater.from(p0.context).inflate(
+                R.layout.movie_item_row,
+                p0,
+                false
+            )
+        )
     }
 
     override fun getItemCount(): Int = movieData.size
 
     override fun onBindViewHolder(p0: MovieHolder, p1: Int) {
-        return p0.bindMovie(context,movieData[p1])
+        return p0.bindMovie(context, movieData[p1])
     }
 
+    fun getList(): ArrayList<MovieItem> {
+        return movieData
+    }
 }
 
-class MovieHolder(view: View): RecyclerView.ViewHolder(view){
+class MovieHolder(view: View) : RecyclerView.ViewHolder(view) {
     private var img_movie_row = view.img_movie_row
     private var tv_title = view.tv_title
     private var tv_rating = view.tv_rating
@@ -48,4 +59,5 @@ class MovieHolder(view: View): RecyclerView.ViewHolder(view){
             context.startActivity(detailIntent)
         }
     }
+
 }

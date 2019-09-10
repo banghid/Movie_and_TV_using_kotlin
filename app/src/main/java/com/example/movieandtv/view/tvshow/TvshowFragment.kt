@@ -1,7 +1,6 @@
 package com.example.movieandtv.view.tvshow
 
 
-import android.arch.lifecycle.Observer
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -24,6 +23,7 @@ import kotlinx.android.synthetic.main.fragment_tvshow.*
 // * A simple [Fragment] subclass.
 // *
 // */
+
 class TvshowFragment : Fragment(), TvShowView {
 
     private var tvShows: ArrayList<TvShowItem> = arrayListOf()
@@ -31,7 +31,8 @@ class TvshowFragment : Fragment(), TvShowView {
     private lateinit var tvShowAdapter: TvShowAdapter
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_tvshow, container, false)
     }
@@ -39,15 +40,22 @@ class TvshowFragment : Fragment(), TvShowView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         tvShowPresenter = TvShowPresenter(this)
-        tvShowAdapter = TvShowAdapter(view.context,tvShows)
+
+        if (savedInstanceState?.getParcelableArrayList<TvShowItem>("data") != null) {
+            tvShowAdapter = TvShowAdapter(
+                view.context,
+                savedInstanceState?.getParcelableArrayList<TvShowItem>("data")
+            )
+            tvShowAdapter.notifyDataSetChanged()
+        } else {
+            tvShowAdapter = TvShowAdapter(view.context, tvShows)
+            tvShowPresenter.setTvShow(resources.getString(R.string.code_language))
+        }
         rv_tvshow.apply {
             layoutManager = LinearLayoutManager(view.context)
             setHasFixedSize(true)
             adapter = tvShowAdapter
         }
-        tvShowPresenter.setTvShow(resources.getString(R.string.code_language))
-        tvShowPresenter.getTvShows().observe(this, getTvShow)
-
 
     }
 
@@ -56,22 +64,18 @@ class TvshowFragment : Fragment(), TvShowView {
         tvShowAdapter.notifyDataSetChanged()
     }
 
-    private val getTvShow =
-        Observer<java.util.ArrayList<TvShowItem>> { tvShowItems ->
-            if (tvShowItems != null) {
-                showTvShow(tvShowItems)
-                showLoading(false)
-            } else {
-                showLoading(true)
-            }
-        }
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putParcelableArrayList("data", tvShowAdapter.getList())
+        super.onSaveInstanceState(outState)
+    }
 
-    private fun showLoading(state: Boolean) {
-        if (state) {
-            fragment_tvShow_pb.visibility = View.VISIBLE
-        } else {
-            fragment_tvShow_pb.visibility = View.GONE
-        }
+
+    override fun showLoading() {
+        fragment_tvShow_pb.visibility = View.VISIBLE
+    }
+
+    override fun hideLoading() {
+        fragment_tvShow_pb.visibility = View.GONE
     }
 
 }

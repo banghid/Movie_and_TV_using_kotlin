@@ -12,21 +12,31 @@ import com.example.movieandtv.view.tvshow_detail.TvShowDetailActivity
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.tvshow_item_row.view.*
 
-class TvShowAdapter(private val context: Context, private val tvShowData: List<TvShowItem>) :
+class TvShowAdapter(private val context: Context, private val tvShowData: ArrayList<TvShowItem>) :
     RecyclerView.Adapter<TvShowHolder>() {
     override fun onBindViewHolder(p0: TvShowHolder, p1: Int) {
-        return p0.bindTvShow(context,tvShowData[p1])
+        return p0.bindTvShow(context, tvShowData[p1])
     }
 
     override fun getItemCount(): Int = tvShowData.size
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): TvShowHolder {
-        return TvShowHolder(LayoutInflater.from(p0.context).inflate(R.layout.tvshow_item_row,p0,false))
+        return TvShowHolder(
+            LayoutInflater.from(p0.context).inflate(
+                R.layout.tvshow_item_row,
+                p0,
+                false
+            )
+        )
+    }
+
+    fun getList(): ArrayList<TvShowItem> {
+        return tvShowData
     }
 
 }
 
-class TvShowHolder(view: View): RecyclerView.ViewHolder(view){
+class TvShowHolder(view: View) : RecyclerView.ViewHolder(view) {
     private var img_tvshow_row = view.img_tvshow_row
     private var tv_title_tvshow = view.tv_title_tvshow
     private var tv_rating_tvshow = view.tv_rating_tvshow
