@@ -4,9 +4,9 @@ import android.content.Context
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
-import com.example.movieandtv.view.movie.MovieFragment
 import com.example.movieandtv.R
-import com.example.movieandtv.view.tvshow.TvshowFragment
+import com.example.movieandtv.view.fragment.MovieFragment
+import com.example.movieandtv.view.fragment.TvshowFragment
 
 class MyPagerAdapter(fm: FragmentManager,private val context: Context): FragmentPagerAdapter(fm) {
 

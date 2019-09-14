@@ -1,4 +1,4 @@
-package com.example.movieandtv.view.tvshow_detail
+package com.example.movieandtv.view.activity
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity

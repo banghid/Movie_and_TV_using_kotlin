@@ -6,54 +6,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="change_language_settings">Change Language</string>
     <string name="detail_title">Title</string>
-    <string name="detail_genre">Genre</string>
     <string name="detail_overview">Overview</string>
-    <string name="detail_episode">Episode</string>
     <string name="tab_movie">Movies</string>
     <string name="tab_tv">TV Shows</string>
-    <string name="tvshow1_title">Legacies</string>
-    <string name="tvshow1_genre">Drama, Scifi, Fantasy, Mystery</string>
-    <string name="tvshow1_poster">
-        https://vignette.wikia.nocookie.net/vampirediaries/images/c/c4/Legacies_Key_Art_Poster.jpg/revision/latest?cb=20180517122345
-    </string>
-    <string name="tvshow1_episode">16 episodes</string>
-    <string name="tvshow1_overview">In a place where young witches, vampires, and werewolves are nurtured to be their
-        best selves in spite of their worst impulses, Klaus Mikaelson’s daughter, 17-year-old Hope Mikaelson, Alaric
-        Saltzman’s twins, Lizzie and Josie Saltzman, among others, come of age into heroes and villains at The Salvatore
-        School for the Young and Gifted.
-    </string>
-    <string name="tvshow2_title">Goblin Slayer</string>
-    <string name="tvshow2_genre">Animation, Action, Adventure, Scifi, Fantasy</string>
-    <string name="tvshow2_poster">https://cdn.myanimelist.net/images/anime/1949/93415l.jpg</string>
-    <string name="tvshow2_episode">12 episodes</string>
-    <string name="tvshow2_overview">A young priestess has formed her first adventuring party, but almost immediately
-        they find themselves in distress. It\'s the Goblin Slayer who comes to their rescue—a man who\'s dedicated his
-        life to the extermination of all goblins, by any means necessary. And when rumors of his feats begin to
-        circulate, there\'s no telling who might come calling next.
-    </string>
-    <string name="tvshow3_title">How Not to Summon a Demon Lord</string>
-    <string name="tvshow3_genre">Action, Adventure, Comedy</string>
-    <string name="tvshow3_poster">https://cdn.myanimelist.net/images/manga/3/161406l.jpg</string>
-    <string name="tvshow3_episode">12 episodes</string>
-    <string name="tvshow3_overview">In regards to the MMORPG Cross Reverie, Sakamoto Takuma boasted an overwhelming
-        strength that was enough for him to be called the Demon King by the other players. One day, he gets summoned to
-        another world with his appearance in the game. There, there are two people that insist \\\"I am the real summon
-        master.\\\" Takuma gets slave-turning magic used for summoned beasts cast on him by the girls―\\n
-    </string>
-    <string name="tvshow4_title">Violet Evergarden</string>
-    <string name="tvshow4_genre">Animation, Drama</string>
-    <string name="tvshow4_poster">https://cdn.myanimelist.net/images/anime/1439/90617l.jpg</string>
-    <string name="tvshow4_episode">13 episodes</string>
-    <string name="tvshow4_overview">The war is over, and Violet Evergarden needs a job. Scarred and emotionless, she
-        takes a job as a letter writer to understand herself and her past.
-    </string>
-    <string name="tvshow5_title">The Resident</string>
-    <string name="tvshow5_genre">Drama</string>
-    <string name="tvshow5_poster">https://upload.wikimedia.org/wikipedia/en/4/4c/The_Resident_logo.png</string>
-    <string name="tvshow5_episode">23 episodes</string>
-    <string name="tvshow5_overview">A tough, brilliant senior resident guides an idealistic young doctor through his
-        first day, pulling back the curtain on what really happens, both good and bad, in modern-day medicine.
-    </string>
     <string name="code_language">en</string>
     <string name="detail_rating">Rating</string>
 

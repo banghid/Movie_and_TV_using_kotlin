@@ -1,4 +1,4 @@
-package com.example.movieandtv.view.movie
+package com.example.movieandtv.view.view_interface
 
 import com.example.movieandtv.model.MovieItem
 

@@ -1,7 +1,10 @@
-package com.example.movieandtv.view.movie_detail
+package com.example.movieandtv.view.activity
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
 import com.example.movieandtv.R
 import com.example.movieandtv.model.MovieItem
 import com.squareup.picasso.Picasso
@@ -26,5 +29,19 @@ class MovieDetailActivity : AppCompatActivity() {
         tv_title_detail_movie.text = movieData.title
         tv_rating_detail_movie.text = movieData.voteAverage.toString()
         tv_overview_detail_movie.text = movieData.overview
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        super.onCreateOptionsMenu(menu)
+        menuInflater.inflate(R.menu.favorite_button_menu, menu)
+        return true
+
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        if (item?.itemId == R.id.favorite_action) {
+            Toast.makeText(this, "Berhasi Favorite", Toast.LENGTH_SHORT).show()
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

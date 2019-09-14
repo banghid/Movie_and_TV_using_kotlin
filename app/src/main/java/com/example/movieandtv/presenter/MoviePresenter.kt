@@ -5,7 +5,7 @@ import android.util.Log
 import com.example.movieandtv.model.MovieItem
 import com.example.movieandtv.model.MovieResponse
 import com.example.movieandtv.service.AppService
-import com.example.movieandtv.view.movie.MovieView
+import com.example.movieandtv.view.view_interface.MovieView
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

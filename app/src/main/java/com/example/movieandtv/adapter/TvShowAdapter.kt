@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.movieandtv.R
 import com.example.movieandtv.model.TvShowItem
-import com.example.movieandtv.view.tvshow_detail.TvShowDetailActivity
+import com.example.movieandtv.view.activity.TvShowDetailActivity
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.tvshow_item_row.view.*
 

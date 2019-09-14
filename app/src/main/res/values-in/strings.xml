@@ -6,57 +6,9 @@
     <string name="hello_blank_fragment">halo blank fragment</string>
     <string name="change_language_settings">Ganti Bahasa</string>
     <string name="detail_title">Judul</string>
-    <string name="detail_genre">Kategori</string>
     <string name="detail_overview">Ikhtisar</string>
-    <string name="detail_episode">Episode</string>
     <string name="tab_tv">Acara TV</string>
     <string name="tab_movie">Film</string>
-    <string name="tvshow1_title">Legacies</string>
-    <string name="tvshow1_genre">Drama, Fiksi Sains, Fantasi, Misteri</string>
-    <string name="tvshow1_poster">
-        https://vignette.wikia.nocookie.net/vampirediaries/images/c/c4/Legacies_Key_Art_Poster.jpg/revision/latest?cb=20180517122345
-    </string>
-    <string name="tvshow1_episode">16 episode</string>
-    <string name="tvshow1_overview">Di tempat di mana para penyihir muda, vampir, dan manusia serigala dibesarkan untuk
-        menjadi diri terbaik mereka terlepas dari impuls terburuk mereka, putri Klaus Mikaelson, 17 tahun Hope
-        Mikaelson, kembar Alaric Saltzman, Lizzie dan Josie Saltzman, antara lain, datang usia menjadi pahlawan dan
-        penjahat di The Salvatore School for the Young and Gifted.
-    </string>
-    <string name="tvshow2_title">Goblin Slayer</string>
-    <string name="tvshow2_genre">Animasi, Aksi, Petualangan, Fiksi Sains, Fantasi</string>
-    <string name="tvshow2_poster">https://cdn.myanimelist.net/images/anime/1949/93415l.jpg</string>
-    <string name="tvshow2_episode">12 episode</string>
-    <string name="tvshow2_overview">Seorang pendeta muda telah membentuk pesta pertualangan pertamanya, tetapi segera
-        mereka mendapati diri mereka dalam kesulitan. Adalah Pembunuh Goblin yang datang untuk menyelamatkan mereka —
-        seorang pria yang mendedikasikan hidupnya untuk memusnahkan semua goblin, dengan cara apa pun yang diperlukan.
-        Dan ketika rumor tentang prestasinya mulai beredar, tidak ada yang tahu siapa yang akan datang menelepon
-        berikutnya.
-    </string>
-    <string name="tvshow3_title">How Not to Summon a Demon Lord</string>
-    <string name="tvshow3_genre">Aksi, Petualangan, Komedi</string>
-    <string name="tvshow3_poster">https://cdn.myanimelist.net/images/manga/3/161406l.jpg</string>
-    <string name="tvshow3_episode">12 episode</string>
-    <string name="tvshow3_overview">Sehubungan dengan Cross MMORPG Reverie, Sakamoto Takuma membual kekuatan yang luar
-        biasa yang cukup baginya untuk disebut Raja Iblis oleh pemain lain. Suatu hari, dia dipanggil ke dunia lain
-        dengan penampilannya di game. Di sana, ada dua orang yang bersikeras, \"Aku adalah ahli pemanggilan yang
-        sebenarnya.\" Takuma mendapat sihir pembalasan budak yang digunakan untuk monster yang dipanggil yang
-        dilemparkan padanya oleh para gadis―
-    </string>
-    <string name="tvshow4_title">Violet Evergarden</string>
-    <string name="tvshow4_genre">Animasi, Drama</string>
-    <string name="tvshow4_poster">https://cdn.myanimelist.net/images/anime/1439/90617l.jpg</string>
-    <string name="tvshow4_episode">13 episode</string>
-    <string name="tvshow4_overview">Perang telah berakhir, dan Violet Evergarden membutuhkan pekerjaan. Luka dan tanpa
-        emosi, ia mengambil pekerjaan sebagai penulis surat untuk memahami dirinya sendiri dan masa lalunya.
-    </string>
-    <string name="tvshow5_title">The Resident</string>
-    <string name="tvshow5_genre">Drama</string>
-    <string name="tvshow5_poster">https://upload.wikimedia.org/wikipedia/en/4/4c/The_Resident_logo.png</string>
-    <string name="tvshow5_episode">23 episode</string>
-    <string name="tvshow5_overview">Seorang residen senior yang tangguh dan cemerlang memandu seorang dokter muda yang
-        idealis melewati hari pertamanya, menarik kembali tirai tentang apa yang sebenarnya terjadi, baik dan buruk,
-        dalam kedokteran modern.
-    </string>
     <string name="code_language">id-ID</string>
     <string name="detail_rating">Peringkat</string>
 </resources>

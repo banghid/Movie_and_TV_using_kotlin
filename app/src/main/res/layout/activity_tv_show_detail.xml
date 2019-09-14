@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
-        tools:context=".view.tvshow_detail.TvShowDetailActivity">
+        tools:context=".view.activity.TvShowDetailActivity">
     <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">

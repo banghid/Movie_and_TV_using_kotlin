@@ -1,4 +1,4 @@
-package com.example.movieandtv.view
+package com.example.movieandtv.view.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -27,6 +27,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+
+        when (item?.itemId) {
+            R.id.action_change_settings -> {
+                val intent = Intent(Settings.ACTION_LOCALE_SETTINGS)
+                startActivity(intent)
+            }
+            R.id.favorite_icon -> {
+                val intent = Intent(applicationContext, FavoriteActivity::class.java)
+                startActivity(intent)
+            }
+        }
         if (item?.itemId == R.id.action_change_settings) {
             val intent = Intent(Settings.ACTION_LOCALE_SETTINGS)
             startActivity(intent)

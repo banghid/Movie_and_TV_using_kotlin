@@ -1,4 +1,4 @@
-package com.example.movieandtv.view.tvshow
+package com.example.movieandtv.view.fragment
 
 
 import android.os.Bundle
@@ -11,6 +11,7 @@ import com.example.movieandtv.R
 import com.example.movieandtv.adapter.TvShowAdapter
 import com.example.movieandtv.model.TvShowItem
 import com.example.movieandtv.presenter.TvShowPresenter
+import com.example.movieandtv.view.view_interface.TvShowView
 import kotlinx.android.synthetic.main.fragment_tvshow.*
 
 
@@ -44,7 +45,7 @@ class TvshowFragment : Fragment(), TvShowView {
         if (savedInstanceState?.getParcelableArrayList<TvShowItem>("data") != null) {
             tvShowAdapter = TvShowAdapter(
                 view.context,
-                savedInstanceState?.getParcelableArrayList<TvShowItem>("data")
+                savedInstanceState.getParcelableArrayList<TvShowItem>("data")
             )
             tvShowAdapter.notifyDataSetChanged()
         } else {

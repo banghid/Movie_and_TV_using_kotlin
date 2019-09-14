@@ -1,4 +1,4 @@
-package com.example.movieandtv.view.movie
+package com.example.movieandtv.view.fragment
 
 
 import android.os.Bundle
@@ -12,6 +12,7 @@ import com.example.movieandtv.R
 import com.example.movieandtv.adapter.MovieAdapter
 import com.example.movieandtv.model.MovieItem
 import com.example.movieandtv.presenter.MoviePresenter
+import com.example.movieandtv.view.view_interface.MovieView
 import kotlinx.android.synthetic.main.fragment_movie.*
 
 

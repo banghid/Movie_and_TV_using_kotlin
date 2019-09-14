@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.movieandtv.R
 import com.example.movieandtv.model.MovieItem
-import com.example.movieandtv.view.movie_detail.MovieDetailActivity
+import com.example.movieandtv.view.activity.MovieDetailActivity
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.movie_item_row.view.*
 
