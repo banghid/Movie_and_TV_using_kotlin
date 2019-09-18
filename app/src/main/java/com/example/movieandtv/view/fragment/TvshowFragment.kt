@@ -43,9 +43,11 @@ class TvshowFragment : Fragment(), TvShowView {
         tvShowPresenter = TvShowPresenter(this)
 
         if (savedInstanceState?.getParcelableArrayList<TvShowItem>("data") != null) {
+            val dataTemp: ArrayList<TvShowItem> =
+                ArrayList(savedInstanceState.getParcelableArrayList<TvShowItem>("data")!!)
             tvShowAdapter = TvShowAdapter(
                 view.context,
-                savedInstanceState.getParcelableArrayList<TvShowItem>("data")
+                dataTemp
             )
             tvShowAdapter.notifyDataSetChanged()
         } else {

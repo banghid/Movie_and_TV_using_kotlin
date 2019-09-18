@@ -12,7 +12,7 @@ import com.example.movieandtv.view.fragment.FavoriteTvShowFragment
 class FavoriteAdapter(fm: FragmentManager, private val context: Context) :
     FragmentPagerAdapter(fm) {
 
-    private val pages = listOf(
+    private val pages = listOf<Fragment>(
         FavoriteMovieFragment(),
         FavoriteTvShowFragment()
     )

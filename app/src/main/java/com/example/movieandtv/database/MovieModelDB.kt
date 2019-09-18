@@ -19,9 +19,6 @@ data class MovieModelDB constructor(
     @ColumnInfo(name = "original_title")
     var originalTitle: String? = null,
 
-    @ColumnInfo(name = "video")
-    var video: Boolean? = null,
-
     @ColumnInfo(name = "title")
     var title: String? = null,
 
@@ -47,11 +44,11 @@ data class MovieModelDB constructor(
     @ColumnInfo(name = "id")
     var id: Int? = null,
 
-    @ColumnInfo(name = "adult")
-    var adult: Boolean? = null,
-
     @ColumnInfo(name = "vote_count")
-    var voteCount: Int? = null
+    var voteCount: Int? = null,
+
+    @ColumnInfo(name = "category")
+    var category: String? = null
 ) : Parcelable {
     @Ignore
     constructor() : this(id = 0)

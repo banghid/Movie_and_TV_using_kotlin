@@ -9,13 +9,13 @@ import android.widget.Toast
 import com.example.movieandtv.R
 import com.example.movieandtv.database.FavMovieDatabase
 import com.example.movieandtv.database.MovieModelDB
-import com.example.movieandtv.model.TvShowItem
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_tv_show_detail.*
+import kotlinx.android.synthetic.main.activity_fav_detail.*
 
-class TvShowDetailActivity : AppCompatActivity() {
 
-    private lateinit var tvShow: TvShowItem
+class FavDetailActivity : AppCompatActivity() {
+
+    private lateinit var favData: MovieModelDB
     private val BASE_URL_IMAGE = "https://image.tmdb.org/t/p/w500/"
     private var favMovieDatabase: FavMovieDatabase? = null
     private var isFavorite: Boolean = false
@@ -23,18 +23,18 @@ class TvShowDetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_tv_show_detail)
+        setContentView(R.layout.activity_fav_detail)
 
         val intent = intent
-        tvShow = intent.getParcelableExtra("TVSHOW_DATA")
-        tvShow.posterPath.let {
-            Picasso.get().load(BASE_URL_IMAGE + tvShow.posterPath).into(img_detail_tvshow)
+        favData = intent.getParcelableExtra("FAVORITE_DATA")
+        favData.posterPath.let {
+            Picasso.get().load(BASE_URL_IMAGE + favData.posterPath).into(img_detail_fav)
         }
-        tv_title_detail_tvshow.text = tvShow.name
-        tv_rating_detail_tvshow.text = tvShow.voteAverage.toString()
-        tv_overview_detail_tvshow.text = tvShow.overview
+
+        tv_title_detail_fav.text = favData.title
+        tv_rating_detail_fav.text = favData.voteAverage.toString()
+        tv_overview_detail_fav.text = favData.overview
         favMovieDatabase = FavMovieDatabase.getInstance(this)
-        favoriteCheck()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -54,12 +54,12 @@ class TvShowDetailActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         if (item?.itemId == R.id.favorite_action) {
             if (isFavorite) {
-                deleteFavorite(tvShow)
+                deleteFavorite(favData)
                 isFavorite = false
                 setFavorite()
                 Toast.makeText(this, "Success to Unfavorite", Toast.LENGTH_SHORT).show()
             } else {
-                insertToDB(tvShow)
+                insertToDB(favData)
                 isFavorite = true
                 setFavorite()
                 Toast.makeText(this, "Berhasil Favorite", Toast.LENGTH_SHORT).show()
@@ -69,24 +69,9 @@ class TvShowDetailActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    fun insertToDB(tvShow: TvShowItem) {
-        val movieModelDB = MovieModelDB(
-            tvShow.overview,
-            tvShow.originalLanguage,
-            tvShow.originalName,
-            tvShow.name,
-            tvShow.posterPath,
-            tvShow.backdropPath,
-            tvShow.firstAirDate,
-            tvShow.popularity,
-            tvShow.voteAverage,
-            tvShow.id,
-            tvShow.voteCount,
-            "tv_show"
-        )
-
+    fun insertToDB(favoriteData: MovieModelDB) {
         try {
-            favMovieDatabase?.favMovieDao()?.insert(movieModelDB)
+            favMovieDatabase?.favMovieDao()?.insert(favoriteData)
             Log.d("MovieDetail Insert", "Success to save")
         } catch (e: Exception) {
             Log.d("MovieDetail Insert", "Fail to save" + e.message)
@@ -94,24 +79,10 @@ class TvShowDetailActivity : AppCompatActivity() {
 
     }
 
-    fun deleteFavorite(tvShow: TvShowItem) {
-        val movieModelDB = MovieModelDB(
-            tvShow.overview,
-            tvShow.originalLanguage,
-            tvShow.originalName,
-            tvShow.name,
-            tvShow.posterPath,
-            tvShow.backdropPath,
-            tvShow.firstAirDate,
-            tvShow.popularity,
-            tvShow.voteAverage,
-            tvShow.id,
-            tvShow.voteCount,
-            "tv_show"
-        )
+    fun deleteFavorite(favoriteData: MovieModelDB) {
 
         try {
-            favMovieDatabase!!.favMovieDao().delete(movieModelDB)
+            favMovieDatabase!!.favMovieDao().delete(favoriteData)
             Toast.makeText(this, "success to unfavorite", Toast.LENGTH_SHORT).show()
             Log.d("MovieDetail favDelete", "Success to delete")
         } catch (e: Exception) {
@@ -134,7 +105,7 @@ class TvShowDetailActivity : AppCompatActivity() {
 
 
     fun favoriteCheck() {
-        val resultById = favMovieDatabase?.favMovieDao()?.getById(tvShow.id!!)
+        val resultById = favMovieDatabase?.favMovieDao()?.getById(favData.id!!)
         if (resultById?.id != null) {
             isFavorite = true
         }

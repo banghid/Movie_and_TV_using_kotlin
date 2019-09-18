@@ -79,17 +79,15 @@ class MovieDetailActivity : AppCompatActivity() {
             movieData.overview,
             movieData.originalLanguage,
             movieData.originalTitle,
-            movieData.video,
             movieData.title,
-//            movieData.genreIds,
             movieData.posterPath,
             movieData.backdropPath,
             movieData.releaseDate,
             movieData.popularity,
             movieData.voteAverage,
             movieData.id,
-            movieData.adult,
-            movieData.voteCount
+            movieData.voteCount,
+            "movie"
         )
 
         try {
@@ -106,17 +104,15 @@ class MovieDetailActivity : AppCompatActivity() {
             movieData.overview,
             movieData.originalLanguage,
             movieData.originalTitle,
-            movieData.video,
             movieData.title,
-//            movieData.genreIds,
             movieData.posterPath,
             movieData.backdropPath,
             movieData.releaseDate,
             movieData.popularity,
             movieData.voteAverage,
             movieData.id,
-            movieData.adult,
-            movieData.voteCount
+            movieData.voteCount,
+            "movie"
         )
 
         try {

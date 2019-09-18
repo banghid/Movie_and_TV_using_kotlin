@@ -10,17 +10,17 @@ class FavMoviePresenter(
     private val favMovieDatabase: FavMovieDatabase
 ) {
 
-    fun getAllData() {
+    fun getAllData(category: String) {
 
         try {
             view.showLoading()
             var movieItems: ArrayList<MovieModelDB> = ArrayList()
-            movieItems.addAll(favMovieDatabase.favMovieDao().getAll())
+            movieItems.addAll(favMovieDatabase.favMovieDao().getAllMovies(category))
             view.showFavMovie(movieItems)
             view.hideLoading()
-            Log.d("MoviePresenter GetAll", "Success to getAll")
+            Log.d("FavMovPresenter GetAll", "Success to getAll")
         } catch (e: Exception) {
-            Log.d("MoviePresenter GetAll", "Fail to getAll" + e.message)
+            Log.d("FavMovPresenter GetAll", "Fail to getAll" + e.message)
         }
     }
 

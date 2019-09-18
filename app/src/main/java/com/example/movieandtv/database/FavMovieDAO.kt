@@ -9,8 +9,8 @@ import android.arch.persistence.room.Query
 @Dao
 interface FavMovieDAO {
 
-    @Query("SELECT * FROM fav_movie")
-    fun getAll(): List<MovieModelDB>
+    @Query("SELECT * FROM fav_movie WHERE category = :category")
+    fun getAllMovies(category: String): List<MovieModelDB>
 
     @Insert(onConflict = REPLACE)
     fun insert(movieData: MovieModelDB)

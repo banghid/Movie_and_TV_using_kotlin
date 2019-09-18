@@ -41,14 +41,16 @@ class FavoriteMovieFragment : Fragment(), FavMovieView {
         favMoviePresenter = FavMoviePresenter(this, favMovieDatabase)
 
         if (savedInstanceState?.getParcelableArrayList<MovieModelDB>("data") != null) {
+            val movieData: ArrayList<MovieModelDB> =
+                ArrayList(savedInstanceState.getParcelableArrayList("data")!!)
             favMovieAdapter = FavMovieAdapter(
                 view.context,
-                savedInstanceState.getParcelableArrayList<MovieModelDB>("data")
+                movieData
             )
             favMovieAdapter.notifyDataSetChanged()
         } else {
             favMovieAdapter = FavMovieAdapter(view.context, movies)
-            favMoviePresenter.getAllData()
+            favMoviePresenter.getAllData("movie")
             Log.d("MoviePresenter", "not null")
         }
 
@@ -77,5 +79,9 @@ class FavoriteMovieFragment : Fragment(), FavMovieView {
         fragment_fav_movies_pb.visibility = View.GONE
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        FavMovieDatabase.destroyInstance()
+    }
 
 }

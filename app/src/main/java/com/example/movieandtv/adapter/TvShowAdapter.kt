@@ -50,7 +50,6 @@ class TvShowHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         tv_title_tvshow.text = tvShow.originalName
         tv_rating_tvshow.text = tvShow.voteAverage.toString()
-//        tv_episode_tvshow.text = tvShow.
         tvshow_item_row.setOnClickListener {
             val detailTvShow = Intent(context, TvShowDetailActivity::class.java)
             detailTvShow.putExtra("TVSHOW_DATA", tvShow)

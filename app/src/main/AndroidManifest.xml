@@ -12,17 +12,21 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity
+                android:name=".view.activity.FavDetailActivity"
+                android:parentActivityName=".view.activity.FavoriteActivity"
+                android:theme="@style/Theme.AppCompat.Light.DarkActionBar"></activity>
+        <activity
                 android:name=".view.activity.FavoriteActivity"
                 android:parentActivityName=".view.activity.MainActivity"
-                android:theme="@style/Theme.AppCompat.Light.DarkActionBar"></activity>
+                android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
         <activity
                 android:name=".view.activity.TvShowDetailActivity"
                 android:parentActivityName=".view.activity.MainActivity"
-                android:theme="@style/Theme.AppCompat.Light.DarkActionBar"></activity>
+                android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
         <activity
                 android:name=".view.activity.MovieDetailActivity"
                 android:parentActivityName=".view.activity.MainActivity"
-                android:theme="@style/Theme.AppCompat.Light.DarkActionBar"></activity>
+                android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
         <activity
                 android:name=".view.activity.MainActivity"
                 android:label="@string/app_name"

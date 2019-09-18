@@ -46,9 +46,11 @@ class MovieFragment : Fragment(), MovieView {
         moviePresenter = MoviePresenter(this)
 
         if (savedInstanceState?.getParcelableArrayList<MovieItem>("data") != null) {
+            val dataTemp: ArrayList<MovieItem> =
+                ArrayList(savedInstanceState.getParcelableArrayList<MovieItem>("data")!!)
             movieAdapter = MovieAdapter(
                 view.context,
-                savedInstanceState.getParcelableArrayList<MovieItem>("data")
+                dataTemp
             )
             movieAdapter.notifyDataSetChanged()
         } else {

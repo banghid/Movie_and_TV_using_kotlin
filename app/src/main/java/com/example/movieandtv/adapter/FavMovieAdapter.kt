@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.movieandtv.R
 import com.example.movieandtv.database.MovieModelDB
-import com.example.movieandtv.view.activity.MovieDetailActivity
+import com.example.movieandtv.view.activity.FavDetailActivity
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.movie_item_row.view.*
 
@@ -57,8 +57,8 @@ class FavMovieHolder(view: View) : RecyclerView.ViewHolder(view) {
         tv_rating.text = movie.voteAverage.toString()
 
         movie_item_row.setOnClickListener {
-            val detailIntent = Intent(context, MovieDetailActivity::class.java)
-            detailIntent.putExtra("MOVIE_DATA", movie)
+            val detailIntent = Intent(context, FavDetailActivity::class.java)
+            detailIntent.putExtra("FAVORITE_DATA", movie)
             context.startActivity(detailIntent)
         }
     }
