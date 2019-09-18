@@ -9,7 +9,7 @@
             app:showAsAction="never" />
     <item
             android:id="@+id/favorite_icon"
-            android:title="favorite_menu"
+            android:title="@string/favorite_menu_dummy"
             android:icon="@drawable/ic_bookmark_white_24dp"
-            app:showAsAction="always" />
+            app:showAsAction="ifRoom" />
 </menu>

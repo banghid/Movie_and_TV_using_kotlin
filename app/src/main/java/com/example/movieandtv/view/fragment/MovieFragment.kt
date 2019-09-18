@@ -48,7 +48,7 @@ class MovieFragment : Fragment(), MovieView {
         if (savedInstanceState?.getParcelableArrayList<MovieItem>("data") != null) {
             movieAdapter = MovieAdapter(
                 view.context,
-                savedInstanceState?.getParcelableArrayList<MovieItem>("data")
+                savedInstanceState.getParcelableArrayList<MovieItem>("data")
             )
             movieAdapter.notifyDataSetChanged()
         } else {

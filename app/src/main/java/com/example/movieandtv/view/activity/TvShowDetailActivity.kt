@@ -16,7 +16,7 @@ class TvShowDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tv_show_detail)
 
-        var intent = intent
+        val intent = intent
         tvShow = intent.getParcelableExtra("TVSHOW_DATA")
         tvShow.posterPath.let {
             Picasso.get().load(BASE_URL_IMAGE + tvShow.posterPath).into(img_detail_tvshow)

@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -45,9 +47,12 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.6.1'
     implementation 'com.squareup.retrofit2:converter-gson:2.6.1'
     implementation 'com.amitshekhar.android:android-networking:1.0.2'
+    kapt "android.arch.lifecycle:compiler:1.1.1"
 
     def room_version = "1.1.1"
 
     implementation "android.arch.persistence.room:runtime:$room_version"
-    annotationProcessor "android.arch.persistence.room:compiler:$room_version"
+    kapt "android.arch.persistence.room:compiler:$room_version"
+
+
 }

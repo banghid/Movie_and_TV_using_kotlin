@@ -9,9 +9,10 @@ import com.example.movieandtv.view.view_interface.MovieView
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.*
+
 
 class MoviePresenter(private var view: MovieView) {
+
     private var appService: AppService = AppService()
 
     fun setMovie(lang: String) {
@@ -33,5 +34,6 @@ class MoviePresenter(private var view: MovieView) {
             }
         })
     }
+
 
 }

@@ -11,5 +11,7 @@
     <string name="tab_tv">TV Shows</string>
     <string name="code_language">en</string>
     <string name="detail_rating">Rating</string>
+    <string name="favorite_menu_dummy">favorite_menu</string>
+    <string name="favoriteactiondummy">favoriteAction</string>
 
 </resources>
