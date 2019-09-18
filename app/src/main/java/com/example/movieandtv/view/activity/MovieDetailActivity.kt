@@ -38,6 +38,7 @@ class MovieDetailActivity : AppCompatActivity() {
         tv_title_detail_movie.text = movieData.title
         tv_rating_detail_movie.text = movieData.voteAverage.toString()
         tv_overview_detail_movie.text = movieData.overview
+        supportActionBar?.title = resources.getString(R.string.movie_detail_title)
         favMovieDatabase = FavMovieDatabase.getInstance(this)
         favoriteCheck()
     }

@@ -28,8 +28,8 @@ class FavoriteAdapter(fm: FragmentManager, private val context: Context) :
     override fun getPageTitle(position: Int): CharSequence? {
 
         return when (position) {
-            0 -> "Favorite " + context.resources.getString(R.string.tab_movie)
-            else -> "Favorite " + context.resources.getString(R.string.tab_tv)
+            0 -> context.resources.getString(R.string.tab_movie)
+            else -> context.resources.getString(R.string.tab_tv)
         }
     }
 }

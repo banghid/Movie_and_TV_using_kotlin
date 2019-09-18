@@ -11,4 +11,9 @@
     <string name="tab_movie">Film</string>
     <string name="code_language">id-ID</string>
     <string name="detail_rating">Peringkat</string>
+    <string name="favorite_menu_dummy">favorite_menu</string>
+    <string name="favoriteactiondummy">favoriteAction</string>
+    <string name="favorite_title">Favorit</string>
+    <string name="movie_detail_title">Detail Film</string>
+    <string name="tvshow_detail_title">Detail Acara TV</string>
 </resources>

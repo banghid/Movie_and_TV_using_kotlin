@@ -13,5 +13,6 @@ class FavoriteActivity : AppCompatActivity() {
         setContentView(R.layout.activity_favorite)
         favorite_pager.adapter = FavoriteAdapter(supportFragmentManager, this)
         favorite_tabs.setupWithViewPager(favorite_pager)
+        supportActionBar?.title = resources.getString(R.string.favorite_title)
     }
 }

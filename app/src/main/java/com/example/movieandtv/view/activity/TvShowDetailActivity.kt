@@ -33,6 +33,7 @@ class TvShowDetailActivity : AppCompatActivity() {
         tv_title_detail_tvshow.text = tvShow.name
         tv_rating_detail_tvshow.text = tvShow.voteAverage.toString()
         tv_overview_detail_tvshow.text = tvShow.overview
+        supportActionBar?.title = resources.getString(R.string.tvshow_detail_title)
         favMovieDatabase = FavMovieDatabase.getInstance(this)
         favoriteCheck()
     }

@@ -13,5 +13,8 @@
     <string name="detail_rating">Rating</string>
     <string name="favorite_menu_dummy">favorite_menu</string>
     <string name="favoriteactiondummy">favoriteAction</string>
+    <string name="favorite_title">Favorite</string>
+    <string name="movie_detail_title">Movie Detail</string>
+    <string name="tvshow_detail_title">TV Show Detail</string>
 
 </resources>
