@@ -17,7 +17,7 @@ class MoviePresenter(private var view: MovieView) {
 
     fun setMovie(lang: String) {
         view.showLoading()
-        appService.getMovieApi().getMovie(lang).enqueue(object : Callback<MovieResponse> {
+        appService.getMovieApi()?.getMovie(lang)?.enqueue(object : Callback<MovieResponse> {
             override fun onResponse(call: Call<MovieResponse>, response: Response<MovieResponse>) {
                 val movieResponse = response.body()
                 if (movieResponse?.results != null) {

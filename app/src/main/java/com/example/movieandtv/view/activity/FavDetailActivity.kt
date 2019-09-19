@@ -69,7 +69,7 @@ class FavDetailActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    fun insertToDB(favoriteData: MovieModelDB) {
+    private fun insertToDB(favoriteData: MovieModelDB) {
         try {
             favMovieDatabase?.favMovieDao()?.insert(favoriteData)
             Log.d("MovieDetail Insert", "Success to save")
@@ -79,7 +79,7 @@ class FavDetailActivity : AppCompatActivity() {
 
     }
 
-    fun deleteFavorite(favoriteData: MovieModelDB) {
+    private fun deleteFavorite(favoriteData: MovieModelDB) {
 
         try {
             favMovieDatabase!!.favMovieDao().delete(favoriteData)
@@ -95,7 +95,7 @@ class FavDetailActivity : AppCompatActivity() {
         FavMovieDatabase.destroyInstance()
     }
 
-    fun setFavorite() {
+    private fun setFavorite() {
         if (isFavorite) {
             menu?.getItem(0)?.setIcon(R.drawable.ic_favorite_white_24dp)
         } else {
@@ -104,7 +104,7 @@ class FavDetailActivity : AppCompatActivity() {
     }
 
 
-    fun favoriteCheck() {
+    private fun favoriteCheck() {
         val resultById = favMovieDatabase?.favMovieDao()?.getById(favData.id!!)
         if (resultById?.id != null) {
             isFavorite = true

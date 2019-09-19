@@ -70,7 +70,7 @@ class TvShowDetailActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    fun insertToDB(tvShow: TvShowItem) {
+    private fun insertToDB(tvShow: TvShowItem) {
         val movieModelDB = MovieModelDB(
             tvShow.overview,
             tvShow.originalLanguage,
@@ -95,7 +95,7 @@ class TvShowDetailActivity : AppCompatActivity() {
 
     }
 
-    fun deleteFavorite(tvShow: TvShowItem) {
+    private fun deleteFavorite(tvShow: TvShowItem) {
         val movieModelDB = MovieModelDB(
             tvShow.overview,
             tvShow.originalLanguage,
@@ -125,7 +125,7 @@ class TvShowDetailActivity : AppCompatActivity() {
         FavMovieDatabase.destroyInstance()
     }
 
-    fun setFavorite() {
+    private fun setFavorite() {
         if (isFavorite) {
             menu?.getItem(0)?.setIcon(R.drawable.ic_favorite_white_24dp)
         } else {
@@ -134,7 +134,7 @@ class TvShowDetailActivity : AppCompatActivity() {
     }
 
 
-    fun favoriteCheck() {
+    private fun favoriteCheck() {
         val resultById = favMovieDatabase?.favMovieDao()?.getById(tvShow.id!!)
         if (resultById?.id != null) {
             isFavorite = true

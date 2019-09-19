@@ -5,15 +5,17 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import com.example.movieandtv.R
-import com.example.movieandtv.view.fragment.MovieFragment
-import com.example.movieandtv.view.fragment.TvshowFragment
 
-class MyPagerAdapter(fm: FragmentManager,private val context: Context): FragmentPagerAdapter(fm) {
+class MyPagerAdapter(
+    fm: FragmentManager,
+    private val context: Context,
+    private val pages: List<Fragment>
+) : FragmentPagerAdapter(fm) {
 
-    private val pages = listOf(
-        MovieFragment(),
-        TvshowFragment()
-    )
+//    private val pages = listOf(
+//        MovieFragment(),
+//        TvshowFragment()
+//    )
 
     override fun getCount(): Int {
         return pages.size

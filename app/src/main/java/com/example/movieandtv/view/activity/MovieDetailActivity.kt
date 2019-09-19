@@ -75,7 +75,7 @@ class MovieDetailActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    fun insertToDB(movieData: MovieItem) {
+    private fun insertToDB(movieData: MovieItem) {
         val movieModelDB = MovieModelDB(
             movieData.overview,
             movieData.originalLanguage,
@@ -100,7 +100,7 @@ class MovieDetailActivity : AppCompatActivity() {
 
     }
 
-    fun deleteFavorite(movieData: MovieItem) {
+    private fun deleteFavorite(movieData: MovieItem) {
         val movieModelDB = MovieModelDB(
             movieData.overview,
             movieData.originalLanguage,
@@ -130,7 +130,7 @@ class MovieDetailActivity : AppCompatActivity() {
         FavMovieDatabase.destroyInstance()
     }
 
-    fun setFavorite() {
+    private fun setFavorite() {
         if (isFavorite) {
             menu?.getItem(0)?.setIcon(R.drawable.ic_favorite_white_24dp)
         } else {
@@ -139,7 +139,7 @@ class MovieDetailActivity : AppCompatActivity() {
     }
 
 
-    fun favoriteCheck() {
+    private fun favoriteCheck() {
         val resultById = favMovieDatabase?.favMovieDao()?.getById(movieData.id!!)
         if (resultById?.id != null) {
             isFavorite = true

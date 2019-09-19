@@ -14,7 +14,7 @@ class FavMoviePresenter(
 
         try {
             view.showLoading()
-            var movieItems: ArrayList<MovieModelDB> = ArrayList()
+            val movieItems: ArrayList<MovieModelDB> = ArrayList()
             movieItems.addAll(favMovieDatabase.favMovieDao().getAllMovies(category))
             view.showFavMovie(movieItems)
             view.hideLoading()

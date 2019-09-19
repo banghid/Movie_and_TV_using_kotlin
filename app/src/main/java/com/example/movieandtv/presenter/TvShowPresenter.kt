@@ -15,7 +15,7 @@ class TvShowPresenter(private var view: TvShowView) {
 
     fun setTvShow(lang: String) {
         view.showLoading()
-        appService.getTvshowApi().getTvShow(lang).enqueue(object : Callback<TvShowResponse> {
+        appService.getTvshowApi()?.getTvShow(lang)?.enqueue(object : Callback<TvShowResponse> {
             override fun onResponse(
                 call: Call<TvShowResponse>,
                 response: Response<TvShowResponse>

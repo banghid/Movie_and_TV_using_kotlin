@@ -7,7 +7,7 @@ class AppService {
     private var retrofit: Retrofit? = null
     private val BASE_URL: String = "https://api.themoviedb.org/"
 
-    fun getMovieApi(): MovieApi {
+    fun getMovieApi(): MovieApi? {
 
         if (retrofit == null) {
             retrofit = Retrofit.Builder()
@@ -16,10 +16,10 @@ class AppService {
                 .build()
         }
 
-        return retrofit!!.create<MovieApi>(MovieApi::class.java)
+        return retrofit?.create<MovieApi>(MovieApi::class.java)
     }
 
-    fun getTvshowApi(): TvShowApi {
+    fun getTvshowApi(): TvShowApi? {
 
         if (retrofit == null) {
             retrofit = Retrofit.Builder()
@@ -28,6 +28,6 @@ class AppService {
                 .build()
         }
 
-        return retrofit!!.create<TvShowApi>(TvShowApi::class.java)
+        return retrofit?.create<TvShowApi>(TvShowApi::class.java)
     }
 }

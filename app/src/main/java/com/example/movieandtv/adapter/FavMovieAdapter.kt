@@ -18,7 +18,6 @@ class FavMovieAdapter(
 ) :
     RecyclerView.Adapter<FavMovieHolder>() {
 
-
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): FavMovieHolder {
         return FavMovieHolder(
             LayoutInflater.from(p0.context).inflate(

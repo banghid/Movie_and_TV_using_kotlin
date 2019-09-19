@@ -8,14 +8,21 @@ import android.view.Menu
 import android.view.MenuItem
 import com.example.movieandtv.R
 import com.example.movieandtv.adapter.MyPagerAdapter
+import com.example.movieandtv.view.fragment.MovieFragment
+import com.example.movieandtv.view.fragment.TvshowFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        view_pager.adapter = MyPagerAdapter(supportFragmentManager, this)
+        val pages = listOf(
+            MovieFragment(),
+            TvshowFragment()
+        )
+        view_pager.adapter = MyPagerAdapter(supportFragmentManager, this, pages)
         tabs.setupWithViewPager(view_pager)
 
     }
