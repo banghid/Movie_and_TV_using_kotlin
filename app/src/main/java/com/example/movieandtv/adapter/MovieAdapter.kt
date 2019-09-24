@@ -55,8 +55,9 @@ class MovieHolder(view: View) : RecyclerView.ViewHolder(view) {
         tv_rating.text = movie.voteAverage.toString()
 
         movie_item_row.setOnClickListener {
-            val detailIntent = Intent(context, MovieDetailActivity::class.java)
+            val detailIntent = Intent(context.applicationContext, MovieDetailActivity::class.java)
             detailIntent.putExtra("MOVIE_DATA", movie)
+
             context.startActivity(detailIntent)
         }
 

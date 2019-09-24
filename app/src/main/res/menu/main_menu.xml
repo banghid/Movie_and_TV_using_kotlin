@@ -11,5 +11,12 @@
             android:id="@+id/favorite_icon"
             android:title="@string/favorite_menu_dummy"
             android:icon="@drawable/ic_bookmark_white_24dp"
-            app:showAsAction="ifRoom" />
+            app:showAsAction="always" />
+
+    <item
+            android:id="@+id/search_icon_menu"
+            android:title="Search menu"
+            android:icon="@drawable/ic_search_white_24dp"
+            app:showAsAction="always|collapseActionView"
+            app:actionViewClass="android.widget.SearchView" />
 </menu>

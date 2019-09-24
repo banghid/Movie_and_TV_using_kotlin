@@ -12,11 +12,6 @@ class MyPagerAdapter(
     private val pages: List<Fragment>
 ) : FragmentPagerAdapter(fm) {
 
-//    private val pages = listOf(
-//        MovieFragment(),
-//        TvshowFragment()
-//    )
-
     override fun getCount(): Int {
         return pages.size
     }
@@ -31,4 +26,6 @@ class MyPagerAdapter(
             else -> context.resources.getString(R.string.tab_tv)
         }
     }
+
+
 }

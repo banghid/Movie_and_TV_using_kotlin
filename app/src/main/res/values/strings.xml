@@ -16,5 +16,9 @@
     <string name="favorite_title">Favorite</string>
     <string name="movie_detail_title">Movie Detail</string>
     <string name="tvshow_detail_title">TV Show Detail</string>
+    <string name="input_text">Seach Here</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+
 
 </resources>

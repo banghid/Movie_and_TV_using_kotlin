@@ -16,7 +16,8 @@
             android:layout_height="100dp"
             android:id="@+id/img_movie_row"
             android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:layout_marginEnd="@dimen/activity_vertical_margin"/>
+            android:layout_marginEnd="@dimen/activity_vertical_margin"
+            android:transitionName="imageTransition" />
 
     <LinearLayout
             android:layout_width="match_parent"
@@ -29,11 +30,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_title"
+                android:transitionName="titleTransition"
                 android:textStyle="bold"/>
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_rating"
+                android:transitionName="ratingTransition"
                 android:textStyle="italic"/>
 
 

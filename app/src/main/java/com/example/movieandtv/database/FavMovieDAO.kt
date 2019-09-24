@@ -21,5 +21,8 @@ interface FavMovieDAO {
     @Query("SELECT * FROM fav_movie WHERE id = :idMovie LIMIT 1")
     fun getById(idMovie: Int): MovieModelDB
 
+    @Query("SELECT * FROM fav_movie")
+    fun getAllFav(): List<MovieModelDB>
+
 
 }

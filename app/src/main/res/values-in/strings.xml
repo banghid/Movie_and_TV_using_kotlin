@@ -16,4 +16,7 @@
     <string name="favorite_title">Favorit</string>
     <string name="movie_detail_title">Detail Film</string>
     <string name="tvshow_detail_title">Detail Acara TV</string>
+    <string name="input_text">Cari Disini</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
 </resources>
