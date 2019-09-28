@@ -4,6 +4,7 @@ import android.arch.persistence.room.ColumnInfo
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.Ignore
 import android.arch.persistence.room.PrimaryKey
+import android.database.Cursor
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
@@ -52,4 +53,13 @@ data class MovieModelDB constructor(
 ) : Parcelable {
     @Ignore
     constructor() : this(id = 0)
+
+    @Ignore
+    constructor(cursor: Cursor) : this() {
+        this.overview = cursor.getString(cursor.getColumnIndex("overview"))
+        this.posterPath = cursor.getString(cursor.getColumnIndex("poster_path"))
+//        this.voteCount = cursor.getInt(cursor.getColumnIndex("vote_count"))
+//        this.id = cursor.getInt(cursor.getColumnIndex("id"))
+//        this.voteAverage =
+    }
 }

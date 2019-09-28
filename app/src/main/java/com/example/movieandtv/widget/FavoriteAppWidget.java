@@ -10,19 +10,18 @@ import android.widget.RemoteViews;
 import android.widget.Toast;
 
 import com.example.movieandtv.R;
-import com.example.movieandtv.view.activity.MainActivity;
 
 /**
  * Implementation of App Widget functionality.
  */
 public class FavoriteAppWidget extends AppWidgetProvider {
 
-    private static final String TOAST_ACTION = "Widget_Toast_Action";
+    private static final String WIDGET_DETAIL = "Widget_Detail";
     public static final String EXTRA_ITEM = "Widget_Item";
 
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                 int appWidgetId) {
-        Intent intent = new Intent(context, MainActivity.class);
+        Intent intent = new Intent(context, StackWidgetService.class);
         intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
         intent.setData(Uri.parse(intent.toUri(Intent.URI_INTENT_SCHEME)));
 
@@ -30,11 +29,14 @@ public class FavoriteAppWidget extends AppWidgetProvider {
         views.setRemoteAdapter(R.id.stack_view, intent);
         views.setEmptyView(R.id.stack_view, R.id.empty_view);
 
-        Intent intentToast = new Intent(context, FavoriteAppWidget.class);
-        intentToast.setAction(FavoriteAppWidget.TOAST_ACTION);
+        Intent favoriteIntent = new Intent(context, FavoriteAppWidget.class);
+        favoriteIntent.setAction(FavoriteAppWidget.WIDGET_DETAIL);
+        favoriteIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
+        favoriteIntent.setData(Uri.parse(favoriteIntent.toUri(Intent.URI_INTENT_SCHEME)));
 
-        PendingIntent intentPendingToast = PendingIntent.getBroadcast(context, 0, intentToast, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent intentPendingToast = PendingIntent.getBroadcast(context, 0, favoriteIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         views.setPendingIntentTemplate(R.id.stack_view, intentPendingToast);
+
 
         appWidgetManager.updateAppWidget(appWidgetId, views);
     }
@@ -61,7 +63,7 @@ public class FavoriteAppWidget extends AppWidgetProvider {
     public void onReceive(Context context, Intent intent) {
         super.onReceive(context, intent);
         if (intent.getAction() != null) {
-            if (intent.getAction().equals(TOAST_ACTION)) {
+            if (intent.getAction().equals(WIDGET_DETAIL)) {
                 int viewIndex = intent.getIntExtra(EXTRA_ITEM, 0);
                 Toast.makeText(context, "View Touched " + viewIndex, Toast.LENGTH_SHORT).show();
             }

@@ -2,8 +2,8 @@ package com.example.movieandtv.widget;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.RemoteViews;
@@ -12,16 +12,11 @@ import android.widget.RemoteViewsService;
 import com.example.movieandtv.R;
 import com.example.movieandtv.database.FavMovieDatabase;
 import com.example.movieandtv.database.MovieModelDB;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.ArrayList;
+import com.squareup.picasso.Picasso;
 
 class StackRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactory {
 
-    private final ArrayList<MovieModelDB> favMovieItem = new ArrayList<>();
+    private Cursor cursor;
     private final Context appContext;
     private FavMovieDatabase favDatabase;
 
@@ -31,46 +26,47 @@ class StackRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactory {
 
     @Override
     public void onCreate() {
-
+        favDatabase = FavMovieDatabase.Companion.getInstance(appContext);
+        Log.d("StackRemoteFactory", "init database");
     }
 
     @Override
     public void onDataSetChanged() {
-        if (favDatabase == null) {
-            favDatabase = FavMovieDatabase.Companion.getInstance(appContext);
-            Log.d("SackRemoteFactory", "init database");
+        if (cursor != null) {
+            cursor.close();
         }
+        cursor = favDatabase.favMovieDao().getAllFavWidget();
+        Log.d("StackRemoteViewFac", "succes get data : " + cursor);
 
-        favMovieItem.addAll(favDatabase.favMovieDao().getAllFav());
     }
 
     @Override
     public void onDestroy() {
-
+        FavMovieDatabase.Companion.destroyInstance();
     }
 
     @Override
     public int getCount() {
-        return favMovieItem.size();
+        return cursor.getCount();
     }
 
     @Override
     public RemoteViews getViewAt(int position) {
+
+        MovieModelDB itemModel = getItem(position);
         RemoteViews remoteViews = new RemoteViews(appContext.getPackageName(), R.layout.fav_widget_item);
 
-        URL url;
+//        URL url;
         Bitmap mBitmap = null;
         try {
-            url = new URL("https://image.tmdb.org/t/p/w500/" + favMovieItem.get(position).getPosterPath());
 
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setDoInput(true);
-            connection.connect();
-            InputStream input = connection.getInputStream();
-            mBitmap = BitmapFactory.decodeStream(input);
-        } catch (IOException e) {
+            mBitmap = Picasso.get().load("https://image.tmdb.org/t/p/w185/" + itemModel.getPosterPath()).get();
+
+        } catch (Exception e) {
             Log.d("StackRemoteViews", "get Bitmap " + e.getMessage());
         }
+
+        Log.d("StackRemoteViewFac", "output: " + itemModel.getOverview());
 
         remoteViews.setImageViewBitmap(R.id.imageView, mBitmap);
 
@@ -92,16 +88,25 @@ class StackRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactory {
 
     @Override
     public int getViewTypeCount() {
-        return 0;
+        return 1;
     }
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return cursor.moveToPosition(position) ? cursor.getLong(0) : position;
     }
 
     @Override
     public boolean hasStableIds() {
-        return false;
+        return true;
     }
+
+    private MovieModelDB getItem(int position) {
+        if (!cursor.moveToPosition(position)) {
+            throw new IllegalStateException("Position Invalid");
+        }
+
+        return new MovieModelDB(cursor);
+    }
+
 }
