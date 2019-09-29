@@ -89,6 +89,10 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener, AppSea
                     Toast.makeText(this, "Search TV Shows", Toast.LENGTH_SHORT).show()
                 }
             }
+            R.id.action_notification_setup -> {
+                val intent = Intent(applicationContext, NotificationSettingActivity::class.java)
+                startActivity(intent)
+            }
         }
         return (super.onOptionsItemSelected(item))
     }

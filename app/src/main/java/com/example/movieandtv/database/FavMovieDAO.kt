@@ -28,5 +28,14 @@ interface FavMovieDAO {
     @Query("SELECT * FROM fav_movie")
     fun getAllFavWidget(): Cursor
 
+    @Query("SELECT * FROM fav_movie")
+    fun getAllFavCursor(): Cursor
+
+    @Query("SELECT * FROM fav_movie WHERE id = :idMovie LIMIT 1")
+    fun getByIdCursor(idMovie: Int): Cursor
+
+    @Insert
+    fun insertAll(movie: Array<MovieModelDB?>): LongArray
+
 
 }

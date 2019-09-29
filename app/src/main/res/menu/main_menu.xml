@@ -8,6 +8,10 @@
             android:title="@string/change_language_settings"
             app:showAsAction="never" />
     <item
+            android:id="@+id/action_notification_setup"
+            android:title="@string/notification_title"
+            app:showAsAction="never" />
+    <item
             android:id="@+id/favorite_icon"
             android:title="@string/favorite_menu_dummy"
             android:icon="@drawable/ic_bookmark_white_24dp"

@@ -4,6 +4,7 @@ import android.arch.persistence.room.ColumnInfo
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.Ignore
 import android.arch.persistence.room.PrimaryKey
+import android.content.ContentValues
 import android.database.Cursor
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
@@ -61,5 +62,26 @@ data class MovieModelDB constructor(
 //        this.voteCount = cursor.getInt(cursor.getColumnIndex("vote_count"))
 //        this.id = cursor.getInt(cursor.getColumnIndex("id"))
 //        this.voteAverage =
+    }
+
+    companion object {
+        fun fromContentValues(values: ContentValues): MovieModelDB {
+            val movie = MovieModelDB()
+            if (values.containsKey("id")) {
+                movie.id = values.getAsInteger("id")!!
+            }
+            if (values.containsKey("title")) {
+                movie.title = values.getAsString("title")
+            }
+
+            if (values.containsKey("poster_path")) {
+                movie.posterPath = values.getAsString("poster_path")
+            }
+
+            if (values.containsKey("vote_average")) {
+                movie.voteAverage = values.getAsDouble("vote_average")!!
+            }
+            return movie
+        }
     }
 }

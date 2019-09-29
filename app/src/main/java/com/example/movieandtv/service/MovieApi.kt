@@ -14,4 +14,7 @@ interface MovieApi {
     @GET("3/search/movie?api_key=" + BuildConfig.API_KEY)
     fun getSearchMovie(@Query("language") language: String, @Query("query") query: String?): Call<MovieResponse>
 
+    @GET("3/discover/movie?api_key=" + BuildConfig.API_KEY)
+    fun getNewReleaseMovie(@Query("primary_release_date.gte") dateGte: String, @Query("primary_release_date.lte") dateLte: String): Call<MovieResponse>
+
 }
