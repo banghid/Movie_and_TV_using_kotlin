@@ -5,7 +5,7 @@
         android:minWidth="250dp"
         android:minResizeHeight="40dp"
         android:minHeight="110dp"
-        android:previewImage="@drawable/example_appwidget_preview"
+        android:previewImage="@drawable/movieandtv_widget_preview"
         android:resizeMode="horizontal|vertical"
-        android:updatePeriodMillis="0"
+        android:updatePeriodMillis="1800000"
         android:widgetCategory="home_screen" />
